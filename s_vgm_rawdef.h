@@ -1,0 +1,29 @@
+#define GFX_XAA_ZX0_SEG  	    4
+#define GFX_XAA_ZX0_REL 	    0x0000
+#define GFX_XAA_ZX0_ABS 	    0x80000
+#define GFX_XAA_ZX0_SIZE	    0x243
+
+#define GFX_XAB_ZX0_SEG  	    4
+#define GFX_XAB_ZX0_REL 	    0x243
+#define GFX_XAB_ZX0_ABS 	    0x8243
+#define GFX_XAB_ZX0_SIZE	    0x423
+
+#define GFX_XAC_ZX0_SEG  	    4
+#define GFX_XAC_ZX0_REL 	    0x666
+#define GFX_XAC_ZX0_ABS 	    0x8666
+#define GFX_XAC_ZX0_SIZE	    0x1F1
+
+#define GFX_PALETTE_BIN_SEG	    4
+#define GFX_PALETTE_BIN_REL	    0x857
+#define GFX_PALETTE_BIN_ABS	    0x8857
+#define GFX_PALETTE_BIN_SIZE    0x20
+
+#define HONOTORI_LVM_SEG 	5
+#define HONOTORI_LVM_REL 	0x0000
+#define HONOTORI_LVM_ABS 	0xA000
+#define HONOTORI_LVM_SIZE	0x14CB
+
+#define UNDEADLINE_LVM_SEG 	6
+#define UNDEADLINE_LVM_REL 	0x0000
+#define UNDEADLINE_LVM_ABS 	0xC000
+#define UNDEADLINE_LVM_SIZE	0x106A
