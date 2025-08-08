@@ -11,7 +11,6 @@ Controls are as follows:
 
 Possible target frame rates:
 - 60
-- 50
 - 30
 - 25
 - 20
