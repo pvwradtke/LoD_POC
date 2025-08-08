@@ -239,11 +239,17 @@ inline void SoundPlay(u8 bank){
 // VBlank interrupt
 void VDP_InterruptHandler()
 {
-    VDP_SetVerticalOffset(0);
     VDP_SetPage(0);
+    VDP_SetVerticalOffset(0);
+    VDP_SetHBlankLine(SPLIT_SCORE);
     VDP_DisableSprite();
-    VDP_SetHBlankLine(SPLIT_TELA);
     hphase=0;
+    if(swapSprites){
+        attributesTableTemp=attributesTableDisplay;
+        attributesTableDisplay=attributesTableBack;
+        attributesTableBack=attributesTableTemp;
+        swapSprites=FALSE;
+    }
     //VDP_RegWrite(11, 0); -> already set at main
 }
 
@@ -251,17 +257,10 @@ void VDP_HBlankHandler()
 {
     if(hphase==0){
         VDP_SetPage(1);
-        VDP_SetPage(1);
         VDP_SetVerticalOffset(offsetDisplay);
-        VDP_SetHBlankLine(SPLIT_TELA+offsetDisplay);
-        if(swapSprites){
-            attributesTableTemp=attributesTableDisplay;
-            attributesTableDisplay=attributesTableBack;
-            attributesTableBack=attributesTableTemp;
-            swapSprites=FALSE;
-        }
-        VDP_RegWrite(5, attributesTableDisplay[framecount%2]);
         VDP_EnableSprite(TRUE);
+        VDP_RegWrite(5, attributesTableDisplay[framecount%2]);
+        VDP_SetHBlankLine(SPLIT_TELA+offsetDisplay);
         ++framecount;
         hphase=1;
         if(sound.play){
@@ -743,8 +742,8 @@ void main()
         spriteAttributeLowDisplay=spriteAttributeLowBack;
         spriteAttributeLowBack=spriteAttributeLowTemp;
         // Flags that the interrupt should swap the sprites
-        swapSprites=TRUE;
         offsetDisplay=offset;
+        swapSprites=TRUE;
         prevRow8=row8;
         // Scrolls the screen
         offset--;

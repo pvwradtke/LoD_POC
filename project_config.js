@@ -10,7 +10,7 @@
 // BUILD STEPS
 //*******************************************************************************
 
-// DoClean   = false;	//-- Clear all intermediate files and exit (boolean)
+DoClean   = true;	//-- Clear all intermediate files and exit (boolean)
 // DoCompile = true;	//-- Compile all the project and engine source code (boolean). Generate all REL files
 // DoMake    = true;	//-- Link all the project and engine source code (boolean). Merge all REL into one IHX file
 // DoPackage = true;	//-- Generate final binary file (boolean). Binarize the IHX file
@@ -163,10 +163,10 @@ AddROMSignature = true;
 AppSignature = true;
 
 //-- Application company (*). Can be 2 character string or 16-bits integer (0~65535)
-AppCompany = "GL";
+AppCompany = "CL";
 
 //-- Application ID. Can be 2 character string or 16-bits integer (0~65535)
-AppID = "XX";
+AppID = "LD";
 
 //-- Application extra data (array). Comma-separated bytes starting with data size
 // AppExtra = [];
