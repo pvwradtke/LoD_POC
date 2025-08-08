@@ -1,3 +1,4 @@
 out/
 emul/
 *.cbp
+*.layout

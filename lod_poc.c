@@ -244,13 +244,6 @@ void VDP_InterruptHandler()
     VDP_SetHBlankLine(SPLIT_SCORE);
     VDP_DisableSprite();
     hphase=0;
-    if(swapSprites){
-        attributesTableTemp=attributesTableDisplay;
-        attributesTableDisplay=attributesTableBack;
-        attributesTableBack=attributesTableTemp;
-        swapSprites=FALSE;
-    }
-    //VDP_RegWrite(11, 0); -> already set at main
 }
 
 void VDP_HBlankHandler()
@@ -259,8 +252,15 @@ void VDP_HBlankHandler()
         VDP_SetPage(1);
         VDP_SetVerticalOffset(offsetDisplay);
         VDP_EnableSprite(TRUE);
-        VDP_RegWrite(5, attributesTableDisplay[framecount%2]);
         VDP_SetHBlankLine(SPLIT_TELA+offsetDisplay);
+        if(swapSprites){
+            attributesTableTemp=attributesTableDisplay;
+            attributesTableDisplay=attributesTableBack;
+            attributesTableBack=attributesTableTemp;
+            swapSprites=FALSE;
+        }
+        VDP_RegWrite(5, attributesTableDisplay[framecount%2]);
+        //VDP_RegWrite(11, 0);
         ++framecount;
         hphase=1;
         if(sound.play){
@@ -651,7 +651,10 @@ void main()
                 noflick[utemp8].y=SHEIGHT-16;
                 noflick[utemp8].dy=-1;
             }
-            tableSprites[0].attributes[utemp8].y=noflick[utemp8].y+offset;
+            if(noflick[utemp8].y+offset!=216)
+                tableSprites[0].attributes[utemp8].y=noflick[utemp8].y+offset;
+            else
+                tableSprites[0].attributes[utemp8].y=215;
             noflick[utemp8].counter++;
             if(noflick[utemp8].counter==8){
                noflick[utemp8].counter=0;
@@ -685,7 +688,10 @@ void main()
                 shoots[utemp8].y=SHEIGHT-16;
                 shoots[utemp8].dy=-1;
             }
-            tableSprites[0].attributes[utemp8+MAX_NOFLICK].y=shoots[utemp8].y+offset;
+            if(shoots[utemp8].y+offset!=216)
+                tableSprites[0].attributes[utemp8+MAX_NOFLICK].y=shoots[utemp8].y+offset;
+            else
+                tableSprites[0].attributes[utemp8+MAX_NOFLICK].y=215;
             shoots[utemp8].counter++;
             if(shoots[utemp8].counter==8){
                shoots[utemp8].counter=0;
