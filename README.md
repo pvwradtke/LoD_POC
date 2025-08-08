@@ -8,6 +8,7 @@ Controls are as follows:
 - Down key: decrease the number of sprites.
 - LEFT key: increases the target frame rate (up to 60fps)
 - LEFT key: increases the target frame rate (down to 10fps)
+- SPACE key: switchs between a PSG and a MSX Music song (FM, YM2413).
 
 Possible target frame rates:
 - 60
