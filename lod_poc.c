@@ -82,8 +82,79 @@ volatile u8 g_CurrentMusic = 0;
 volatile u8 isMusicSet=FALSE, isMusicChangeBank=FALSE, isMusicLoop=FALSE;
 volatile u8 soundPlay = FALSE;
 
-const u8 map[256] =
+const u8 map[1024] =
 {
+    1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,3,3,3,3,0,0,3,3,3,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,3,0,0,0,
+    0,0,0,3,3,3,3,0,0,3,3,3,3,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,3,3,3,3,0,0,0,3,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,3,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,3,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,3,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,3,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,3,0,0,0,0,0,
+    0,0,0,3,3,3,3,0,0,3,3,3,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,3,3,3,3,0,0,3,3,3,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,0,0,0,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,3,3,3,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,0,0,0,0,
+    0,0,0,3,0,0,3,0,0,3,0,0,0,0,0,0,
+    0,0,0,3,3,3,3,0,0,3,3,3,3,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+    0,4,0,4,0,4,0,4,0,4,0,4,0,4,0,4,
+    4,0,4,0,4,0,4,0,4,0,4,0,4,0,4,0,
+    0,4,0,4,0,4,0,4,0,4,0,4,0,4,0,4,
+    3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+    0,0,0,2,0,0,0,0,0,0,0,2,2,0,0,0,
+    0,0,0,2,0,0,0,0,0,0,0,2,0,2,0,0,
+    0,0,0,2,0,0,0,2,2,2,0,2,0,2,0,0,
+    0,0,0,2,0,0,0,2,0,2,0,2,0,2,0,0,
+    0,0,0,2,0,0,0,2,0,2,0,2,0,2,0,0,   //48
+    0,0,0,2,2,2,0,2,2,2,0,2,2,0,0,0,   //49
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //50
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //51
+    2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,   //52
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,   //53
+    2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,   //54
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //55
+    4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,   //56
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //57
+    2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,   //58
+    1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,   //59
+    2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,   //60
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //61
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,   //62
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0    //63
+};
+
+const u8    mapHeight=64;           // How many lines the map has
+volatile u8 mapLine=64-16;   // Where the map starts drawing
+volatile u8 offsetScroll=240;       // Line to start drawing the next 16 pixels for scrolling
+volatile u8 scrollCount=0;          // How many pixels were elapsed, should draw one tile each frame, from lef to right, at offsetScroll
+/*{
       4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -100,7 +171,7 @@ const u8 map[256] =
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
       0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-};
+};*/
 
 //=============================================================================
 // MEMORY DATA
@@ -430,15 +501,24 @@ void main()
     VDP_RegWrite(6, 0b00001111);
     VDP_EnableSprite(TRUE);
     VDP_LoadSpritePattern(nave,0, 96);
-    // Draws the first display buffer (page 1)
+    // Draws the first display buffer based on map(page 1)
     VDP_SetPage(1);
-    for(u8 l = 0; l < 16; l++)
-        for(u8 c = 0; c < 16; c++){
-            VDP_CommandHMMM((map[l*16+c]%16)*16,(map[l*16+c]/16)*16+TILE_OFFY,
+    for(u16 l = 0; l < 16; l++)
+        for(u16 c = 0; c < 16; c++){
+            VDP_CommandHMMM((map[(l+mapLine)*16+c]%16)*16,(map[(l+mapLine)*16+c]/16)*16+TILE_OFFY,
                             c*16,l*16+256,
                             16,16);
-            VDP_CommandWait();
         }
+    // Draws the next tileset line
+    --mapLine;
+    for(u16 c = 0; c < 16; c++){
+        VDP_CommandHMMM((map[mapLine*16+c]%16)*16,(map[mapLine*16+c]/16)*16+TILE_OFFY,
+                            c*16,offsetScroll+256,
+                            16,16);
+    }
+    //Prepares for the next line in the map
+    --mapLine;
+    offsetScroll-=16;
     // Draw a palette view on page 0
 
     // Load hardware sprites
@@ -739,6 +819,16 @@ void main()
             Mem_Copy(&tableSprites[0].attributes[MAX_NOFLICK], &tableSprites[1].attributes[MAX_NOFLICK], sizeof(SprAttr)*(MAX_SP_PHYS-MAX_NOFLICK));
         }
         // Ensures the interrupt has swapped the sprites tables in VRAM
+        // Updates the map position
+        VDP_CommandHMMM((map[mapLine*16+scrollCount]%16)*16,(map[mapLine*16+scrollCount]/16)*16+TILE_OFFY,
+                                scrollCount*16,offsetScroll+256,
+                                16,16);
+        //Prepares for the next line in the map
+        if(++scrollCount==16){
+            mapLine=(--mapLine)%mapHeight;
+            offsetScroll-=16;
+            scrollCount=0;
+        }
         while(swapSprites){}
         // Writes the sprites RAM copy to the VRAM
         VDP_WriteVRAM((u8*)tableSprites[0].attributes, spriteAttributeLow[spriteAttributeLowBack], 0, 128);
