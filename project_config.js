@@ -124,7 +124,7 @@ AddROMSignature = true;
 //   - RAM0_NONE       Don't install anything in RAM
 //   - RAM0_ISR        Install only ISR
 //   - RAM0_SEGMENT    Install ISR and segment data (for mapped-ROM)
-// InstallRAMISR = "RAM0_NONE";
+InstallRAMISR = "RAM0_SEGMENT";
 
 //-- Type of custom ISR to install (string). ISR is install in RAM or ROM depending on Target and InstallRAMISR parameters
 //   - NONE       No ISR
@@ -132,7 +132,7 @@ AddROMSignature = true;
 //   - VBLANK     V-blank handler
 //   - VHBLANK    V-blank and h-blank handler (V9938 or V9958)
 //   - V9990      V-blank, h-blank and command end handler (V9990)
- CustomISR = "NONE";
+ CustomISR = "VHBLANK";
 
 //-- Use automatic banked call and trampoline functions (boolean). For mapped ROM
 // BankedCall = false;

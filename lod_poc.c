@@ -291,8 +291,8 @@ const u8  delays[6][3]={{0,0,60}, {1,1,30}, {1,2,25}, {2,2,20}, {3,2,15}, {3,3,1
 
 const struct MusicEntry g_MusicEntry[] =
 {
-	{ "Galious             ", 0xA000 + HONOTORI_LVM_REL , 5}, //HONOTORI_LVM_SEG },
-	{ "Undeadline          ", 0xA000 + UNDEADLINE_LVM_REL  , 6}//UNDEADLINE_LVM_SEG }
+	{ "Galious             ", 0xA000 + HONOTORI_LVM_REL , 6}, //HONOTORI_LVM_SEG },
+	{ "Undeadline          ", 0xA000 + UNDEADLINE_LVM_REL  , 7}//UNDEADLINE_LVM_SEG }
 };
 
 SoundEntry  sound = { 0, FALSE};
@@ -411,7 +411,7 @@ inline void drawText(const char *text, u16 x, u16 y){
 
 //-----------------------------------------------------------------------------
 // H_KEYI interrupt hook
-void InterruptHook()
+/*void InterruptHook()
 {
 	__asm
 		// Get S#1
@@ -433,7 +433,7 @@ void InterruptHook()
 	__endasm;
 
 	// Call((u16)HookBackup_KEYI);
-}
+}*/
 
 /*void SetMusic(u8 idx)
 {
@@ -479,7 +479,7 @@ void main()
 	VDP_ClearVRAM();
 	VDP_SetSpriteFlag(VDP_SPRITE_SIZE_16);
 
-    SET_BANK_SEGMENT(3, 4);
+    SET_BANK_SEGMENT(3, 3);
     VDP_SetPalette((const u8*)(0xA000+GFX_PALETTE_BIN_REL));
     //Mem_Copy(vram1, compressed, vram1_len);
     ZX0_UnpackToRAM((const u8*)(0xA000+GFX_XAA_ZX0_REL), decompress);
@@ -635,9 +635,9 @@ void main()
 	Bios_SetKeyClick(FALSE);
 	VDP_EnableHBlank(TRUE);
 	VDP_SetHBlankLine(SPLIT_SCORE);
-	Bios_SetHookCallback(H_KEYI, InterruptHook);
+//	Bios_SetHookCallback(H_KEYI, InterruptHook);
 	VDP_EnableVBlank(TRUE);
-	Bios_SetHookCallback(H_TIMI, VDP_InterruptHandler);
+//	Bios_SetHookCallback(H_TIMI, VDP_InterruptHandler);
 	drawText("LINE 2",8,11);
 
     VDP_SetColor(0);
